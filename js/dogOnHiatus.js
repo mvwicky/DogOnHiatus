@@ -1,23 +1,13 @@
-function addArticle(json){
-	$("#content").last().after().append("<div class='article'></div>");
-	$("#content .article").last().after().append("<div id='articleTitle'><a href='#'></a></div>");
-	$("#content .article").last().after().append("<div id='articleDate'></div>");		
-	$("#content .article").last().after().append("<div id='articlePreview'></div>");
-	$("#content .article").last().after().append("<div id='articleContent'></div>")
-	$("#content .article #articleTitle a").last().append(json.title);
-	$("#content .article #articleDate").last().append(json.date);
-	$("#content .article #articlePreview").last().append(json.preview)
-	$("#content .article #articleContent").last().append(json.content);
-}
-
 function addPreview(json){
 	$("#content").last().after().append("<div class='article'></div>");
 	$("#content .article").last().after().append("<div id='articleTitle'><a href='#'></a></div>");
-	$("#content .article").last().after().append("<div id='articleDate'></div>");		
+	$("#content .article").last().after().append("<div id='articleDate'><div id='articleCategory'></div></div>");		
 	$("#content .article").last().after().append("<div id='articlePreview'></div>");
-	$("#content .article").last().after().append("<div id='articleContent'></div>")
+	$("#content .article").last().after().append("<div id='articleContent'></div>");
 	$("#content .article #articleTitle a").last().append(json.title);
+	$("#content .article #articleTitle a").last().attr("href", json.link + ".html");
 	$("#content .article #articleDate").last().append(json.date);
+	$("#content .article #articleCategory").last().append(json.category);
 	$("#content .article #articlePreview").last().append(json.preview)
 	$("#content .article #articleContent").last().append(json.content);
 
@@ -35,7 +25,7 @@ function clickSlide(){
 		});
 
 		if ($("#content .article").not(this).is(":hidden")){
-			$("#header").replaceWith("<div id='header'>Recent Articles (Click to Expand)</div>");
+			$("#header").replaceWith("<div id='header'>Recent Articles (Click Article to Expand)</div>");
 			$("#content .article").show("slow");
 			$(this).find("#articleContent").hide("slow");
 			$(this).find("#articlePreview").show("slow");
@@ -60,7 +50,10 @@ $(document).ready(function(){
 
 	var title = "Dog on Hiatus"
 
+	$("head").prepend("<meta charset='UTF-8'/>")
+
 	$("#title").append(title);
+
 
 	$("head").append("<link rel='icon' type='image/png' href='../DogOnHiatusIcon.png'>");
 

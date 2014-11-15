@@ -86,7 +86,14 @@ body{
     margin-left: 1em;
 }
 
+#articleCategory {
+    font-size: 1em;
+    margin-left: 0em;
+    margin-bottom: .25em;
+}
+
 #articleContent {
+    line-height: 1.5em;
 	margin-left: 1em;
     margin-right: 1em;
     margin-top: .5em;
@@ -94,9 +101,17 @@ body{
 }
 
 #articlePreview {
+    line-height: 1.5em;
     margin-left: 1em;
     margin-right: 1em;
     margin-top: .5em;
     margin-bottom: 0em;
 }
 
+#about {
+    line-height: 1.5em;
+    margin-left: 4em;
+    margin-right: 4em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
